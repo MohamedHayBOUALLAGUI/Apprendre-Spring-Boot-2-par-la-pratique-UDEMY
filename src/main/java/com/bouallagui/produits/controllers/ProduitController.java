@@ -3,9 +3,10 @@ package com.bouallagui.produits.controllers;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
+//import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -41,24 +42,44 @@ public class ProduitController {
 	return "createProduit";
 	}
 	
+//	@RequestMapping("/ListeProduits")
+//	public String listeProduits(ModelMap modelMap){
+//		
+//		List<Produit> produits = produitService.getAllProduits();
+//		modelMap.addAttribute("produits", produits);
+//		return "listeProduits";
+//		
+//		
+//	}
+	
+	//liste des produits avec pagination
 	@RequestMapping("/ListeProduits")
-	public String listeProduits(ModelMap modelMap){
-		
-		List<Produit> produits = produitService.getAllProduits();
-		modelMap.addAttribute("produits", produits);
-		return "listeProduits";
-		
-		
+	public String listeProduits(ModelMap modelMap,
+			@RequestParam (name="page",defaultValue = "0") int page,
+			@RequestParam (name="size", defaultValue = "2") int size){
+			Page<Produit> produits = produitService.getAllProduitsParPage(page, size);
+			modelMap.addAttribute("produits", produits);
+			//tableau d'entiers de taille nombre total de pages
+			modelMap.addAttribute("pages", new int[produits.getTotalPages()]);
+			modelMap.addAttribute("currentPage", page);
+			return "listeProduits";
 	}
 	
 	
+	
 	@RequestMapping("/supprimerProduit")
-	public String supprimerProduit(@RequestParam("id") Long id){
+	public String supprimerProduit(ModelMap modelMap,@RequestParam("id") Long id,@RequestParam (name="page",defaultValue = "0") int page,
+			@RequestParam (name="size", defaultValue = "2") int size){
 		
 		
 		produitService.deleteProduitById(id);
 //		List<Produit> produits = produitService.getAllProduits();
 //		modelMap.addAttribute("produits", produits);
+//		Page<Produit> produits = produitService.getAllProduitsParPage(page,size);
+//		modelMap.addAttribute("produits", produits);
+//		modelMap.addAttribute("pages", new int[produits.getTotalPages()]);
+//		modelMap.addAttribute("currentPage", page);
+//		modelMap.addAttribute("size", size);
 		return "redirect:/ListeProduits";
 	}
 	
