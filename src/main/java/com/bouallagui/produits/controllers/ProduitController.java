@@ -29,14 +29,14 @@ public class ProduitController {
 	}
 	
 	@RequestMapping("/saveProduit")
-	public String saveProduit(@ModelAttribute("produit") Produit produit, 
+	public String saveProduit(@ModelAttribute("produit")  Produit produit, 
 	 @RequestParam("date") String date,ModelMap modelMap) throws ParseException {
 	//conversion de la date 
 	 SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
 	 Date dateCreation = dateformat.parse(String.valueOf(date));
 	 produit.setDateCreation(dateCreation);
 	 
-	Produit saveProduit = produitService.saveProduit(produit);
+	 Produit saveProduit = produitService.saveProduit(produit);
 	String msg ="produit enregistré avec Id "+saveProduit.getId();
 	modelMap.addAttribute("msg", msg);
 	return "createProduit";
@@ -85,13 +85,13 @@ public class ProduitController {
 	
 	@RequestMapping("/modifierProduit")
 	public String editerProduit(@RequestParam("id") Long id,ModelMap modelMap){
-	Produit produit= produitService.getProduit(id);
+	 Produit produit= produitService.getProduit(id);
 	modelMap.addAttribute("produit", produit);
 	return "editerProduit";
 	}
 	
 	@RequestMapping("/updateProduit")
-	public String updateProduit(@ModelAttribute("produit") Produit produit,
+	public String updateProduit(@ModelAttribute("produit")  Produit produit,
 	@RequestParam("date") String date){
 		//conversion de la date 
 		 SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");

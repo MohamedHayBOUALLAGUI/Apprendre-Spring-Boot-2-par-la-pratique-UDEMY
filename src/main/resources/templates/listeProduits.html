@@ -4,12 +4,16 @@
  		layout:decorator="template">
 <link rel="stylesheet" type="text/css"
 href="webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <script src="webjars/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <head>
 <meta charset="utf-8">
 <title>Liste des Produits</title>
+<th:block th:insert="~{Fragments :: link}"></th:block>
 </head>
 <body>
-<div layout:fragment="Mycontent">
+<div th:insert="~{Fragments :: nav-bar-fragment}"></div>
+
 <div class="container mt-5">
 <div class="card">
  <div class="card-header">
@@ -41,6 +45,8 @@ page=${currentPage},size=${size})}">Supprimer</a></td>
  </div>
 </div>
 </div>
-</div>
+<!--</div>-->
+
+
 </body>
 </html>

@@ -1,38 +1,33 @@
 package com.bouallagui.produits.entities;
 
-import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Produit {
+public class Categorie {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long idCat;
 	
-	private String libelle;
-	
-	private Double prix;
+	private String libelleCat;
 	
 	
-	private Date dateCreation;
+	private String descriptionCat;
 	
-	
-	@ManyToOne
-	private Categorie categorie;
-
-
-
+	@OneToMany(mappedBy = "categorie")
+	private List <Produit> produits;
 }
