@@ -2,7 +2,7 @@ package com.bouallagui.produits;
 
 import java.util.List;
 
-//import java.util.Date;
+import java.util.Date;
 //import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 //import org.springframework.data.domain.Page;
 
+import com.bouallagui.produits.entities.Categorie;
 import com.bouallagui.produits.entities.Produit;
 import com.bouallagui.produits.repository.ProduitRepository;
 //import com.bouallagui.produits.service.ProduitService;
@@ -35,7 +36,7 @@ class ProduitsApplicationTests {
 //		Produit produit= produitRepository.findById(2L).get();
 //		System.out.println(produit);
 //	}
-//	
+	
 //	@Test
 //	public void testUpdateProduit() {
 //		Produit produit = produitRepository.findById(1L).get();
@@ -73,10 +74,85 @@ class ProduitsApplicationTests {
 //
 //	}
 	
-	@Test
-	public void testFindProduitByLibelle() {
-		
-		List<Produit> produits= produitRepository.findByLibelle("PC Deglawi");
-		produits.forEach(produit ->{System.out.println(produit);});      
-	}
+//	@Test
+//	public void testFindProduitByLibelle() {
+//		
+//		List<Produit> produits= produitRepository.findByLibelle("PC Deglawi");
+//		produits.forEach(produit ->{System.out.println(produit);});      
+//	}
+	
+//	@Test
+//	public void testFindLibelleProduit()
+//	{
+//	List<Produit> produits = produitRepository.findByLibelle("PC Asus");
+//	for (Produit p : produits)
+//	{
+//	System.out.println(p);
+//	}
+//	}
+	
+//	@Test
+//	public void testFindByLibelleContains()
+//	{
+//		List<Produit> produits=produitRepository.findByLibelleContains("imp");
+//			for (Produit p : produits)
+//			{
+//				System.out.println(p);
+//			} 
+//	}
+	
+//	@Test
+//	public void testfindByLibellePrix()
+//	{
+//		List<Produit> produits = produitRepository.findByLibellePrix("PC Deglawi", 900.0);
+//			for (Produit p : produits)
+//			{
+//				System.out.println(p);
+//			}
+//	}
+//	@Test
+//	public void testfindByCategorie()
+//	{
+//		Categorie cat = new Categorie();
+//		cat.setIdCat(1L);
+//		List<Produit> produits = produitRepository.findByCategorie(cat);
+//		for (Produit p : produits)
+//		{
+//		System.out.println(p);
+//		}
+//		
+//
+//		}
+
+//	@Test
+//	public void findByCategorieIdCat()
+//	{
+//	List<Produit> produits = produitRepository.findByCategorieIdCat(2L);
+//	for (Produit p : produits)
+//	{
+//	System.out.println(p);
+//	}
+//	 }
+
+//	@Test
+//	public void testfindByOrderByLibelletAsc()
+//	{
+//	List<Produit> prods = produitRepository.findByOrderByLibelleAsc();
+//	for (Produit p : prods)
+//	{
+//	System.out.println(p);
+//	}
+//	}
+//	@Test
+//	public void testTrierProduitsNomsPrix()
+//	{
+//	List<Produit> prods = produitRepository.trierProduitsLibellePrix();
+//	for (Produit p : prods)
+//	{
+//	System.out.println(p);
+//	}
+//	}
+
+	
+
 }

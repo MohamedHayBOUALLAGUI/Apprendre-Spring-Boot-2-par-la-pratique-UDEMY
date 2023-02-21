@@ -2,7 +2,7 @@ package com.bouallagui.produits;
 
 //import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,7 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 //public class ProduitsApplication implements CommandLineRunner{
 public class ProduitsApplication{
-	@Autowired
+	//@Autowired
 //	private ProduitService produitService;
 	public static void main(String[] args) {
 		SpringApplication.run(ProduitsApplication.class, args);

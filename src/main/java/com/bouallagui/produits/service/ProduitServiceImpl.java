@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import com.bouallagui.produits.entities.Categorie;
 import com.bouallagui.produits.entities.Produit;
 import com.bouallagui.produits.repository.ProduitRepository;
 
@@ -51,6 +52,42 @@ public class ProduitServiceImpl implements ProduitService {
 	public Page<Produit> getAllProduitsParPage(int page, int size) {
 		
 		return produitRepository.findAll(PageRequest.of(page, size));
+	}
+
+	@Override
+	public List<Produit> findByLibelle(String libelle) {
+		return produitRepository.findByLibelle(libelle);
+	}
+
+	@Override
+	public List<Produit> findByLibelleContains(String nom) {
+	
+		return produitRepository.findByLibelleContains(nom);
+	}
+
+	@Override
+	public List<Produit> findByLibellePrix(String nom, Double prix) {
+		return produitRepository.findByLibellePrix(nom, prix);
+	}
+
+	@Override
+	public List<Produit> findByCategorie(Categorie categorie) {	
+		return produitRepository.findByCategorie(categorie);
+	}
+
+	@Override
+	public List<Produit> findByCategorieIdCat(Long id) {	
+		return produitRepository.findByCategorieIdCat(id);
+	}
+
+	@Override
+	public List<Produit> findByOrderByLibelleAsc() {
+		return produitRepository.findByOrderByLibelleAsc();
+	}
+
+	@Override
+	public List<Produit> trierProduitsLibellesPrix() {
+		return produitRepository.trierProduitsLibellesPrix();
 	} 
 
 }
