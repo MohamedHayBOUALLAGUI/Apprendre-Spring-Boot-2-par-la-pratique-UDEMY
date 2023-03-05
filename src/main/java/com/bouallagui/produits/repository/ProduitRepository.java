@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import com.bouallagui.produits.entities.Categorie;
 import com.bouallagui.produits.entities.Produit;
 
+@RepositoryRestResource(path = "rest")
 public interface ProduitRepository extends JpaRepository<Produit, Long> {
 	List<Produit> findByLibelle(String libelle);
 	List<Produit> findByLibelleContains(String libelle);
